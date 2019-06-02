@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Let vs Const</title>
+    </head>
+    <body>
+        <script>
+            const key = 'abc123';
+            let points = 50;
+            let winner = false;    
+
+            // winner will still be false outside the block because it is block scoped and not root scoped
+            if(points > 40) {
+                let winner = true;
+            }
+
+            const person = {
+                name: "Sid",
+                age: 25
+            };
+
+            // person = {name:"Ven"} will not work because object cannot be reassigned. But properties can be reassigned
+
+            person.name = "Ven"; // Works
+        </script>
+    </body>
+</html>

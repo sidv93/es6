@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Let and const in real world</title>
+    </head>
+    <body>
+        <script>
+            // Immediately invoked function expression. Does not leak into root scope.
+            (function() {
+                var name = "Sid";
+                console.log(name);
+            })();
+
+            // In for loops, var leaks into root scope
+            for(var i =0; i < 10; i++) {
+                console.log(i);
+            }
+        </script>
+    </body>
+</html>

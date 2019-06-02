@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Temporal dead zone</title>
+    </head>
+    <body>
+        <script>
+            // will return undefined(not error) because var variables can be accessed before they are declared, but value will not be assigned.
+            console.log(pizza);    
+            var pizza = "thin crust";
+        </script>
+    </body>
+</html>
