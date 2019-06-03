@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Arrow functions</title>
+    </head>
+    <body>
+        <script>
+            const names = ['sid', 'ven', 'uma'];
+
+            // Evlotion
+            const names1 = names.map(function(name) {
+                return `${name} last`;
+            });
+            console.log(names2);
+
+            const names2 = names.map((name) => {
+                return `${name} last`;
+            });
+            console.log(names2);
+
+            const names3 = names.map(name => `${name} last`);
+            console.log(names3);
+
+            const names4 = names.map(() => `sid ven`);
+            console.log(names4);
+
+            // Arrow functions are anonymous
+            const sayMyName = (name) => { alert(`Hello ${name}`);}
+
+            // Returning an object literal implicitly
+            const race = '100m dash';
+            const winners = ['Sid ven', 'Venkatesh', 'Uma'];
+
+            const win = winners.map((name, index) => ({name, race, place: index+1}));
+            console.log(win);
+
+            const ages = [34,5,3,,67,8,9,332,34,45];
+            const old = ages.filter(item => item > 60);
+        </script>
+    </body>
+</html>

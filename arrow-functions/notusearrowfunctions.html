@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>When not to use arrow functions</title>
+    </head>
+    <body>
+        <style>
+            button {
+                font-size: 100px;
+            }
+
+            .on {
+                background: #ffc600;
+            }
+        </style>
+        <button id="pushy">Push me!</button>
+        <script>
+
+            // When you need this
+            // this will be bound to Window if you use arrow functions
+            const button = document.querySelector('#pushy');
+            button.addEventListener('click', function() {
+                this.classList.toggle('on');
+            });
+
+            // When you need a method to bind to an object
+            // this will be bound to Window object if you use arrow functions
+            const person = {
+                points = 23;
+                score() {
+                    this.points++;
+                }
+            }
+
+            // When you need to add a prototype function
+            class Car {
+                constructor(make, color) {
+                    this.make = make;
+                    this.color = color;
+                }
+            }
+
+            const bmw = new Car('bmw', 'white');
+            const sub = new Car('subaru', 'black');
+
+            Car.prototype.summarize = () => {
+                return `This is a ${this.make} car in ${this.color} color`;
+            }
+
+            // Will give an error because this is bound to Window object
+            bmw.summarize();
+
+            // When you need arguments object
+            // Will throw an error because you do not have arguments object inside arrow functions
+            const orderChildren = () => {
+                const children = Array.from(arguments);
+                return children.map((child, index) => `${child} is #${index}`);
+            }
+        </script>
+    </body>
+</html>
