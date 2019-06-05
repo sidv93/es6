@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tagged templates</title>
+    <style>
+        .hl {
+            background: yellow;
+            font-size: 48px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        const name = "Sid";
+        const age = 4;
+        const sentence = highlight`My dogs name is ${name} and he is ${age} years old`;
+
+        function highlight(strings, ...values) {
+            let str = '';
+            strings.forEach((string, index) => {
+                str += `${string} <span class="hl">${values[index] || ''}</span>`;
+            });
+            return str;
+        }
+        console.log(sentence);
+        document.body.innerHTML = sentence;
+    </script>
+</body>
+
+</html>

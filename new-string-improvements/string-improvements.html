@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>New String improvements</title>
+    </head>
+    <body>
+        <script>
+            const course = "RFB2";
+            const flightNumber = "20-AC2018-jz";
+            const accountNumber = "546865489SV001";
+
+            const make = "Audi";
+            const model = "i8";
+            const color = "Royal Blue";
+
+            // StartsWith
+            const flag = course.startsWith("RFB"); // Does not work with lower case
+            const flag1 = flightNumber.startsWith("AC", 3); // Second arguent for offset
+
+            // endsWith
+            const flag3 = flightNumber.endsWith("jz");
+            const flag4 = accountNumber.endsWith("SV", 11); // Takes first 11 and matches
+
+            // includes
+            const flag5 = flightNumber.includes("AC"); // Case sensitive
+
+            // repeat
+            const repeated = make.repeat(10);
+
+            function leftPad(str, length = 20) {
+                return `-> ${' '.repeat(length - str.length)}${str}`;
+            }
+
+            console.log(leftPad(make));
+            console.log(leftPad(color));
+            console.log(leftPad(model));
+        </script>
+    </body>
+</html>

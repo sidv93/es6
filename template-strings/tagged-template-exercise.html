@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tagged template exercise</title>
+</head>
+
+<body>
+    <div class="bio">
+
+    </div>
+    <script>
+        const dict = {
+            HTML: "Hypertext Markup Language",
+            CSS: "Cascading Stylesheets",
+            JS: "JavaScript"
+        };
+        const first = "Sid";
+        const last = "Ven";
+
+        const sentence = addAbbreviations`Hello, my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}`;
+
+        function addAbbreviations(strings, ...values) {
+            const abbreviations = values.map(value => {
+                if (dict[value]) {
+                    return `<abbr title="${dict[value]}">${value}</abbr>`;
+                }
+                return value;
+            });
+
+            return strings.reduce((sentence, string, i) => {
+                return `${sentence} ${string} ${abbreviations[i] || ''}`;
+            })
+        }
+
+        const bio = document.querySelector('.bio');
+        const p = document.createElement('p');
+        p.innerHTML = sentence;
+        bio.appendChild(p);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sanitise user inputs</title>
+    </head>
+    <body>
+        <div class="bio">
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/0.8.2/purify.min.js"></script>
+        <script>
+            const first = "Sid";
+            const aboutMe = sanitize`
+                I love to do evil things.
+                <img src ="http://unsplash.it/100/100?random" onload="alert('You are done!');" />`;
+
+            const html = `
+                <h3>${first}<h3>
+                <p>${aboutMe}</p>
+            `;
+            const bio = document.querySelector('.bio');
+            bio.innerHTML = html;
+
+            function sanitize(strings, ...values) {
+                const dirty = strings.reduce((prev, next, index) => `${prev}${next}${values[index] || ''}`, '');
+                return DOMPurify.sanitize(dirty);
+            }
+        </script>
+    </body>
+</html>

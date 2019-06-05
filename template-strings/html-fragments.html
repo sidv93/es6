@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML fragments</title>
+    </head>
+    <body>
+        <script>
+            const person = {
+                name: "Sid",
+                job: "Web developer",
+                city: "Chennai",
+                bio: "Sid is a cool guy that loves web dev"
+            };
+
+            const markup = `
+                <div class="person">
+                    <h2>
+                        ${person.name}
+                        <span class="job">${person.job}</span>
+                    </h2>
+                    <p class="city">${person.city}</p>
+                    <p class="bio">${person.bio}></p>
+                </div>
+            `;
+
+            document.body.innerHTML = markup;
+
+            const dogs = [
+                {
+                    name: "Sunny",
+                    age: 2
+                },
+                {
+                    name: "Johny",
+                    age: 4
+                }
+            ];
+
+            const markup2 = `
+                <ul class="dogs">
+                    ${dogs.map(dog => `<li>${dog.name} is ${dog.age}</li>`).join('')}
+                </ul>
+            `;
+            
+            document.body.innerHTML = markup2;
+
+            const song = {
+                name: "Dying to live",
+                artist: "Tupac",
+                featuring: "Eminem"
+            };
+
+            const markup3 = `
+                <div class="song">
+                    <p>
+                        ${song.name} - ${song.artist}
+                        ${song.featuring ? `(Featuring ${song.featuring})` : ''}
+                    </p>
+                </div>
+            `;
+
+            document.body.innerHTML = markup3;
+
+            const beer = {
+                name: "Belgian wit",
+                brewery: "Steam Whistle Brewery",
+                keywords: ["pale", "cloudy", "spiced", "crisp"]
+            }
+
+            const markup4 = `
+                <div class="beer">
+                    <h2>${beer.name}</h2>
+                    <p class="brewery">${beer.brewery}</p>
+                    ${renderKeywords(beer.keywords)}
+                </div>
+            `;
+
+            function renderKeywords(keywords) {
+                return `
+                    <ul>
+                        ${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
+                    </ul>
+                `;
+            }
+
+            document.body.innerHTML = markup4;
+        </script>
+    </body>
+</html>
