@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Destructuring arrays</title>
+    </head>
+    <body>
+
+        <script>
+            const details = ["Sid Ven", 25, "sidv.dev"];
+            const [name, age, link] = details;
+
+            const data = "Tennis, Sports, 90210, 23";
+            const [name, category, skew, inventory] = data.split(',');
+
+            const team = ["Sid", "Ven", "Ram", "Gopa", "Sundar"];
+            const [captain, vice, ...rest] = team;
+        </script>
+    </body>
+</html>

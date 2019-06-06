@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Destructuring objects</title>
+    </head>
+    <body>
+
+        <script>
+            const person = {
+                first: "Sid",
+                last: "Ven",
+                country: "India",
+                city: "Chennai",
+                twitter: "siddhu93"
+            };
+
+            const { first, last } = person;
+            console.log(first, last);
+
+            const sid = {
+                first: "Sid",
+                last: "Ven",
+                links: {
+                    social: {
+                        twitter: "twitter",
+                        instagram: "instagram"
+                    },
+                    web:{
+                        blog: "sidv.dev"
+                    }
+                }
+            };
+
+            const { twitter, instagram } = sid.links.social;
+            const { twitter: tweet, instagram: insta } = sid.links.social;
+
+            const settings = { width: 300, color: 'black' };
+            const { width = 100, color = "blue", height = 100, fontSize = 25 } = settings;
+
+            // Everything in one
+            const { w: width = 300, h: height = 300 }= { w: 100};
+        </script>
+    </body>
+</html>
