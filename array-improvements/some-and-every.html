@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Some and every</title>
+    </head>
+    <body>
+        <script>
+            const numbers = [2,2,4,1,,2,2,4,66,7,9,5];
+
+            const isEven = numbers.every(item => item%2 === 0);
+            const hasFive = numbers.some(item => item === 5);
+        </script>
+    </body>
+</html>

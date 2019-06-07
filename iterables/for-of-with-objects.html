@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            For of with objects
+        </title>
+    </head>
+    <body>
+        <script>
+            const apple = {
+                color: 'Red',
+                weight: 50
+            }
+
+            for(const prop of Object.entries(apple)) {
+                console.log(prop);
+            }
+        </script>
+    </body>
+</html>

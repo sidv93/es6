@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Array from and of</title>
+    </head>
+    <body>
+        <div class="people">
+            <p>Sid</p>
+            <p>Ven</p>
+            <p>Kalki</p>
+        </div>
+        <script>
+            const people = document.querySelectorAll('.people p'); // returns Nodelist
+            const peopleArray = Array.from(people, person => {
+                return person;
+            }); // Takes a callback function as second argument
+
+            function sumAll() {
+                return Array.from(arguments).reduce((prev, next) => prev + next, 0);
+            }
+            sumAll(12,123,2343,4343,4,2);
+
+            // Array of creates an array from the arguments passed
+            const arr = Array.of(12,34,34,3);
+        </script>
+    </body>
+</html>

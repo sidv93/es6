@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>For of loop</title>
+    </head>
+    <body>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <p>Hi</p>
+        <script>
+            const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+            for(const cut of cuts) {
+                console.log(cut);  // Can also use break and continue unlike forEach
+            }
+
+            const meat = cuts.entries();
+            meat.next(); // returns next value
+
+            for(const cut of cuts.entries()) {
+                console.log(cut); // Returns [index, value] array
+            }
+
+            for(const [i, cut] of cuts.entries()) {
+                console.log(`${cut} is ${i}`);
+            }
+
+            function addNumbers() {
+                let total = 0;
+                for(let num of arguments) {
+                    total += num;
+                }
+                return total;
+            }
+
+            addNumbers(12,3,456,6,7,7);
+
+            const ps = document.querySelectorAll('p');
+            for(const p of ps) {
+                console.log(p.innerHTML);
+            }
+        </script>
+    </body>
+</html>
