@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rest</title>
+    </head>
+    <body>
+        <script>
+            function convertCuurency(rate, ...amounts) {
+                return amounts.map(item => item*rate);
+            }
+
+            convertCuurency(1.54, 10, 340,1, 34, 54);
+
+            const runner = ['Sid', 'Ven', 12, 34, 54, 233];
+            const [name, id, ...runs] = runner;
+
+            const team = ['Sid', 'Ven', 'p1', 'p2', 'p3'];
+            const [captain, assistant, ...players] = team;
+        </script>
+    </body>
+</html>

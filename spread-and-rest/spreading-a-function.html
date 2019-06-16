@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Spreading a function
+        </title>
+    </head>
+    <body>
+        <script>
+            const inventors = ['Einstein', 'Newton', 'Pascal'];
+            const newInventors = ['Musk', 'Jobs'];
+            inventors.push(...newInventors);
+
+            const name = ['Sid', 'Ven'];
+
+            function sayHi(first, last) {
+                alert(`Hey there ${first} ${last}`);
+            }
+
+            sayHi(...name);
+        </script>
+    </body>
+</html>
