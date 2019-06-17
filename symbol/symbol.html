@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Symbol</title>
+</head>
+
+<body>
+    <script>
+        const classRoom = {
+            [Symbol('Sid')]: {grade: 50, age: 17},
+            [Symbol('Ven')]: {grade: 100, age: 28}
+        };
+
+        // Symbols are innumerable
+
+        const syms = Object.getOwnPropertySymbols(classRoom);
+        const data = syms.map(sym => classRoom[sym]);
+    </script>
+</body>
+
+</html>
