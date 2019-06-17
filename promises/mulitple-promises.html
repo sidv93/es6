@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Multiple Promises</title>
+    </head>
+    <body>
+        <script>
+            const weather = new Promise(resolve => {
+                setTimeout(() => {
+                    resolve({temperature: 29, conditions: 'Sunny'});
+                }, 200);
+            });
+
+            const tweets = new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(['I like pizza', 'Burger is good too']);
+                }, 2000);
+            });
+
+            Promise
+                .all([weather, tweets])
+                .then(responses => {
+                    console.log(responses); // will take
+                    const [weather, tweets] = responses;
+                });
+
+            const postPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+            const streetCarPrmoise = fetch('http://data.ratp.fr/api/datasets//1.0/search/?q=paris');
+
+            Promise
+                .all([postPromise, streetCarPrmoise])
+                .then(responses => Promise.all(responses.map(res => res.json())))
+                .then(responses => {
+                    const [posts, streetCars] = responses;
+                })
+        </script>
+    </body>
+</html>

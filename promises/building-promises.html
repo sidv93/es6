@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Building promises</title>
+    </head>
+    <body>
+        <script>
+            const prom = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Sid is cool');
+                    // reject(Error('Sid is not cool'));
+                }, 2000);
+            });
+
+            prom
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        </script>
+    </body>
+</html>
