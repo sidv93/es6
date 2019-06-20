@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Classes</title>
+</head>
+
+<body>
+    <script>
+        // Same code as inheritance but with classes
+        class Dog {
+            constructor(name, breed) {
+                this.name = name;
+                this.breed = breed;
+            }
+
+            bark() {
+                console.log(`My name is ${this.name} and I am a ${this.breed}`);
+            }
+
+            static info() {
+                console.log(`Dog is better than cats`);
+            }
+
+            get description() {
+                return `${this.name} is a ${this.breed}`;
+            }
+
+            set nicknames(nickname) {
+                this.nickname = nickname.trim();
+            }
+
+            get nicknames() {
+                return this.nickname;
+            }
+        }
+
+        const sid = new Dog('Sid', 'Great Dane');
+        sid.bark();
+        Dog.info();
+        sid.description;
+        sid.nicknames = 'siddhu';
+    </script>
+</body>
+
+</html>

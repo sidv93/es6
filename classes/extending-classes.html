@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Extending classes</title>
+    </head>
+    <body>
+        <script>
+            class Animal {
+                constructor(name) {
+                    this.name = name;
+                    this.thirst = 100;
+                    this.belly = [];
+                }
+
+                drink() {
+                    this.thirst -= 10;
+                    return this.thirst;
+                }
+
+                eat(food) {
+                    this.belly.push(food);
+                    return this.belly;
+                }
+            }
+
+            class Dog extends Animal {
+                constructor(name, breed) {
+                    super(name);
+                    this.breed = breed;
+                }
+
+                bark() {
+                    console.log(`Woof Woof! I am a ${this.breed}`);
+                }
+            }
+
+            const rhino = new Animal('Rhino');
+            rhino.drink();
+            rhino.eat('Pizza');
+
+            const doggo = new Dog('Sid', 'Great dane');
+            doggo.bark();
+            doggo.eat('bone');
+        </script>
+    </body>
+</html>
