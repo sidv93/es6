@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sets with brunch</title>
+    </head>
+    <body>
+        <script>
+            const brunch = new Set();
+            // people start coming in
+            brunch.add('Sid');
+            brunch.add('Ven');
+            
+            //ready to open
+            const line = brunch.values();
+            console.log(line.next().value);
+            console.log(line.next().value);
+
+            // more people come in
+            brunch.add('Ram');
+            brunch.add('Gopa');
+
+            // next method works on line var even after getting values
+            console.log(line.next().value); // will return ram
+        </script>
+    </body>
+</html>

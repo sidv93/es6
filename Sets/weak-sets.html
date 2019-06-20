@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Weak sets</title>
+    </head>
+    <body>
+        <script>
+            const dog1 = {name: 'Sid', age: 12};
+            const dog2 = {name: 'Ven', age: 20};
+            
+            const weak = new WeakSet([dog1, dog2]); //Can only contain objects
+
+            //Does not have clear method
+            dog1 = null; // Will automatically delete it from Set
+        </script>
+    </body>
+</html>

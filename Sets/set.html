@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sets</title>
+</head>
+
+<body>
+    <script>
+        const people = new Set();
+        people.add('Sid');
+        people.add('Ven');
+
+        console.log(people.size);
+        people.delete('Sid');
+        // people.clear();
+
+        const iterator = people.values(); // Gives an iterator
+        iterator.next(); // gives next value
+
+        for(const person of people) {
+            console.log(person);
+        }
+
+        // people.keys() and people.entries() have same value
+
+        const students = new Set(['Sid', 'Ven', 'Ram']);
+        students.has('Sid');
+    </script>
+</body>
+
+</html>
