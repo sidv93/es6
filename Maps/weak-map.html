@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Weak Map</title>
+    </head>
+    <body>
+        <script>
+            let dog1 = {name: 'Sid',age: 23};
+            let dog2 = {name: 'Ven', age:4};
+            
+            const strong = new Map();
+            const weak = new WeakMap();
+
+            strong.set(dog1);
+            weak.set(dog2);
+
+            dog1 = null; // Will still be in Map
+            dog2 = null; // Will not be in map. Will also be deleted from there
+        </script>
+    </body>
+</html>

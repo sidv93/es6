@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Map Metadata</title>
+    </head>
+    <body>
+        <button>Snakes</button>
+        <button>Lion</button>
+        <button>Tiger</button>
+        <button>Giraffe</button>
+        <script>
+            const buttonMap = new Map();
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                buttonMap.set(button, 0);
+                button.addEventListener('click', function() {
+                    const val = buttonMap.get(this);
+                    buttonMap.set(this, val+1);
+                });
+            });
+        </script>
+    </body>
+</html>
