@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Proxies</title>
+</head>
+
+<body>
+    <script>
+        const person = {name: 'Sid', age: 35};
+        const personProxy = new Proxy(person, {
+            get(target, property) { // Gives target object and the prperty you want to access
+                return target[property];
+            },
+            set(target, name, value) {
+                if(typeof value === 'string') {
+                    return target[name] = value.trim().toUpperCase();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

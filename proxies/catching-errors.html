@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Catching silly errors with Proxy</title>
+    </head>
+    <body>
+        <script>
+            const safetyHandler = {
+                set(target, name, value) {
+                    const likeKey = Object.keys(target).find(item => item.toLowerCase() === value.toLowerCase());
+                    if(name && likeKey) {
+                        throw new Error('There is already a key with the same name');
+                    }
+
+                    target[name] = value;
+                }
+            }
+            const safety = new Proxy({id: 100}, safetyHandler); 
+            
+            safety.id = 200;
+        </script>
+    </body>
+</html>
