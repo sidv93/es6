@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Error Handling in Async await</title>
+</head>
+
+<body>
+    <script>
+        function breathe(amount) {
+            return new Promise((resolve, reject) => {
+                if (amount < 500) {
+                    reject(`${amount} is too small a value`);
+                }
+                setTimeout(() => {
+                    resolve(`Done for ${amount} ms`);
+                }, 1000);
+            });
+        }
+
+        function wrapperFunction(fn) {
+            return function(...args) {
+                return fn(...args).catch(err => {
+                    console.error('Failed');
+                })
+            }
+        }
+
+        async function go(name) {
+            console.log(`Started for ${name}`);
+            const res1 = await breathe(1000);
+            console.log(res1);
+            const res2 = await breathe(1000);
+            console.log(res2);
+            const res3 = await breathe(200);
+            console.log(res3);
+            console.log('end');
+        }
+
+        const wrappedFunction = wrapperFunction(go);
+        wrappedFunction('Sid');
+    </script>
+</body>
+
+</html>

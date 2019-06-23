@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Native promise</title>
+</head>
+<video controls class="handsome"></video>
+
+<body>
+    <script>
+        // fetch('https://api.github.com/users/sidv93').then(res => res.json())
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     });
+
+        const video = document.querySelector('.handsome');
+
+        navigator.mediaDevices.getUserMedia({video: true}).then(mediaStream => {
+            video.srcObject = mediaStream;
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Waiting on multiple promises</title>
+</head>
+
+<body>
+    <script>
+        async function go() {
+            const p1 = fetch('https://api.github.com/users/sidv93');
+            const p2 = fetch('https://api.github.com/users/wesbos');
+
+            const res = await Promise.add([p1, p2]);
+            const dataPromises = res.map(res => res.json());
+            const [sid, wes] = await Promise.all(dataPromises);\
+            console.log(sid, wes);
+        }
+
+        async function getData(names) {
+            const promises = names.map(name => fetch(`https://api.github.com/users/${name}`).then(r => r.json()));
+            const people = await Promise.all(promises);
+            console.log(people);
+        }
+
+        getData(['sidv93', 'wesbos']);
+
+        // go()
+
+    </script>
+</body>
+
+</html>
