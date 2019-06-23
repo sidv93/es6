@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PadStart and padEnd</title>
+</head>
+
+<body>
+    <script>
+        const str = 'Sid';
+        str.padStart(6, 'x'); // xxxSid
+        str.padEnd(6, 'x') // Sidxxx
+
+        const strings = ['short', 'medium size', 'this is really long'];
+        const longestString = strings.sort(str => str.length).map(str => str.length)[0];
+        console.log(longestString);
+
+        strings.forEach(str => console.log(str.padStart(longestString)));
+    </script>
+</body>
+
+</html>

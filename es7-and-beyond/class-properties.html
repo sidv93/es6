@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Class properties</title>
+</head>
+
+<body>
+    <script>
+        class Dog {
+            constructor(name, breed) {
+                this.name = name;
+                this.breed = breed;
+
+                this.barks = 0; // Initialising class properties. Will be moved to a JAva style class property
+            }
+
+            bark() {
+                console.log(`My name is ${this.name}`);
+                this.barks += 1;
+            }
+        }
+
+        const sunny = new Dog('sunny', 'Great dane');
+        sunny.bark();
+    </script>
+</body>
+
+</html>
